@@ -30,7 +30,7 @@ class FileCollection implements CollectionInterface
     {
         $this->filename = $filename;
 
-        $this->data = $this->read($filename);
+        $this->data = $this->read($filename) ?? [];
     }
 
     /**
@@ -39,7 +39,7 @@ class FileCollection implements CollectionInterface
      * @param string $filename
      * @return array
      */
-    protected function read(string $filename): array
+    protected function read(string $filename)
     {
         return json_decode(file_get_contents($filename), true);
     }
