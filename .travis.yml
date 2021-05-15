@@ -25,3 +25,6 @@ after_success:
 
 notifications:
   email: dev@livecommerce.com.br
+
+env:
+  - CODECOV_TOKEN='9caf2759-92b3-46e5-a2c9-06f2e621ed4f'
