@@ -1,0 +1,10 @@
+{
+    "index1": "value",
+    "index2": 5,
+    "index3": true,
+    "index4": 6.5,
+    "index5": [
+        "data"
+    ],
+    "index": "value"
+}
