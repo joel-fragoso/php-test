@@ -25,7 +25,7 @@ interface CollectionInterface
      * @param mixed $value
      * @return void
      */
-    public function set(string $index, $value);
+    public function set(string $index, $value, $expiresIn = 1);
 
     /**
      * Checks whether the collection has the given index
