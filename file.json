@@ -1,10 +1,24 @@
 {
-    "index1": "value",
-    "index2": 5,
-    "index3": true,
-    "index4": 6.5,
-    "index5": [
-        "data"
-    ],
-    "index": "value"
+    "index1": {
+        "value": "value",
+        "expiresIn": 1621184096
+    },
+    "index2": {
+        "value": 5,
+        "expiresIn": 1621184097
+    },
+    "index3": {
+        "value": true,
+        "expiresIn": 1621184097
+    },
+    "index4": {
+        "value": 6.5,
+        "expiresIn": 1621184097
+    },
+    "index5": {
+        "value": [
+            "data"
+        ],
+        "expiresIn": 1621184097
+    }
 }

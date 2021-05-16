@@ -66,7 +66,7 @@ class FileCollectionTest extends TestCase
         $collection->set('index2', 5);
         $collection->set('index3', true);
 
-        $this->assertEquals(6, $collection->count());
+        $this->assertEquals(5, $collection->count());
     }
 
     /**
@@ -88,8 +88,31 @@ class FileCollectionTest extends TestCase
     public function addedItemShouldExistInCollection()
     {
         $collection = new FileCollection('file.json');
-        $collection->set('index', 'value');
+        $collection->set('index1', 'value');
 
-        $this->assertTrue($collection->has('index'));
+        $this->assertTrue($collection->has('index1'));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldBeAbleToVerifyTheFileExists()
+    {
+        $this->expectExceptionMessage('File does not exists');
+
+        $collection = new FileCollection('inexistentFile.json');
+        return $collection;
+    }
+
+    /**
+     * @test
+     * @depends dataCanBeAdded
+     */
+    public function expiredItemsShouldNotBeShow()
+    {
+        $collection = new FileCollection('file.json');
+        $collection->set('index1', 'value', -1);
+
+        $this->assertNull($collection->get('index1'));
     }
 }
