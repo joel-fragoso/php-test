@@ -31,10 +31,10 @@ class MemoryCollectionTest extends TestCase
         $collection->set('index5', ['data']);
     }
 
-     /**
-     * @test
-     * @depends dataCanBeAdded
-     */
+    /**
+    * @test
+    * @depends dataCanBeAdded
+    */
     public function dataCanBeRetrieved()
     {
         $collection = new MemoryCollection();
@@ -86,7 +86,7 @@ class MemoryCollectionTest extends TestCase
     public function collectionCanBeCleaned()
     {
         $collection = new MemoryCollection();
-        $collection->set('index', 'value');
+        $collection->set('index1', 'value');
         $this->assertEquals(1, $collection->count());
 
         $collection->clean();
@@ -100,8 +100,20 @@ class MemoryCollectionTest extends TestCase
     public function addedItemShouldExistInCollection()
     {
         $collection = new MemoryCollection();
-        $collection->set('index', 'value');
+        $collection->set('index1', 'value');
 
-        $this->assertTrue($collection->has('index'));
+        $this->assertTrue($collection->has('index1'));
+    }
+
+    /**
+     * @test
+     * @depends dataCanBeAdded
+     */
+    public function expiredItemsShouldNotBeShow()
+    {
+        $collection = new MemoryCollection();
+        $collection->set('index1', 'value', -1);
+
+        $this->assertNull($collection->get('index1'));
     }
 }
