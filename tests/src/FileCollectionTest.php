@@ -18,6 +18,16 @@ class FileCollectionTest extends TestCase
 
     /**
      * @test
+     * @depends collectionCanBeCleaned
+     */
+    public function newCollectionShouldNotContainItems()
+    {
+        $collection = new FileCollection('file.json');
+        $this->assertEquals(0, $collection->count());
+    }
+
+    /**
+     * @test
      * @depends objectCanBeConstructed
      * @doesNotPerformAssertions
      */
