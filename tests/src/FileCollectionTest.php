@@ -76,8 +76,10 @@ class FileCollectionTest extends TestCase
     public function collectionCanBeCleaned()
     {
         $collection = new FileCollection('file.json');
-        $collection->clean();
+        $collection->set('index1', 'value');
+        $this->assertEquals(5, $collection->count());
 
+        $collection->clean();
         $this->assertEquals(0, $collection->count());
     }
 
