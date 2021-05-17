@@ -109,5 +109,6 @@ class FileCollection implements CollectionInterface
     public function clean()
     {
         $this->data = [];
+        $this->write($this->data);
     }
 }
